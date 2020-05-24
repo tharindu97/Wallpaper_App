@@ -1,4 +1,4 @@
-package com.example.wallpaper_app
+package com.example.wallpaperapp
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

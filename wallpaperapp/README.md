@@ -1,4 +1,4 @@
-# wallpaper_app
+# wallpaperapp
 
 A new Flutter project.
 
