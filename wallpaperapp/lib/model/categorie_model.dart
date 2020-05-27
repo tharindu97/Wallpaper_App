@@ -1,1 +1,4 @@
-// 26 39
+class CategoriesModel{
+  String categorieName;
+  String imgUrl;
+}
