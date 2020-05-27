@@ -11,6 +11,10 @@ class _HomeState extends State<Home> {
 
   List<CategoriesModel> categories = new List();
 
+  getTrendingwallpapers(){
+    
+  }
+
   @override
   void initState() {
     categories = getCategories();
@@ -89,7 +93,7 @@ class CategoriesTitle extends StatelessWidget {
             child: Image.network(imgUrl,
               height: 50,
               width: 100,
-              fit: BoxFit.cover,
+              fit: BoxFit.cover, 
             ),
           ),
           Container(

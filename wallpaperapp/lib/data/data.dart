@@ -1,4 +1,7 @@
 import 'package:wallpaperapp/model/categorie_model.dart';
+
+String apiKey = "563492ad6f91700001000001d5f5bb29a9e2435fa597a71471e67cfe";
+
 List<CategoriesModel> getCategories(){
 
   List<CategoriesModel> categories = new List();
