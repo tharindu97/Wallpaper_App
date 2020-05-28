@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:wallpaperapp/data/data.dart';
 import 'package:wallpaperapp/model/categorie_model.dart';
 import 'package:wallpaperapp/model/wallpaper_model.dart';
+import 'package:wallpaperapp/views/search.dart';
 import 'package:wallpaperapp/widgets/widget.dart';
 import 'package:http/http.dart' as http;
 
@@ -18,8 +19,10 @@ class _HomeState extends State<Home> {
   List<CategoriesModel> categories = new List();
   List<WallpaperModel> wallpapers = new List();
 
+  TextEditingController searchController = new TextEditingController();
+
   getTrendingwallpapers() async {
-    var response = await http.get("https://api.pexels.com/v1/curated",
+    var response = await http.get("https://api.pexels.com/v1/curated?per_page=14&page=1",
       headers: {
         "Authorization" : apiKey
       },
@@ -34,7 +37,7 @@ class _HomeState extends State<Home> {
     });
 
     setState(() {
-      
+      // 1 48
     }); 
   }
  
@@ -69,13 +72,24 @@ class _HomeState extends State<Home> {
                   children: <Widget>[
                     Expanded(
                       child: TextField(
+                        controller: searchController,
                         decoration: InputDecoration(
                           hintText: 'search wallpaper',
                           border: InputBorder.none
                         ),
                       ),
                     ),
-                    Icon(Icons.search)
+                    GestureDetector(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => Search(
+                            searchQuery: searchController.text,
+                          )));
+                      },
+                      child: Container(
+                        child: Icon(Icons.search)
+                      ),
+                    ),
                   ],
                 ),
               ),
