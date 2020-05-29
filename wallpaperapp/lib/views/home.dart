@@ -5,6 +5,7 @@ import 'package:wallpaperapp/data/data.dart';
 import 'package:wallpaperapp/model/categorie_model.dart';
 import 'package:wallpaperapp/model/wallpaper_model.dart';
 import 'package:wallpaperapp/views/categorie.dart';
+import 'package:wallpaperapp/views/image_view.dart';
 import 'package:wallpaperapp/views/search.dart';
 import 'package:wallpaperapp/widgets/widget.dart';
 import 'package:http/http.dart' as http;

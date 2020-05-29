@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wallpaperapp/model/wallpaper_model.dart';
+import 'package:wallpaperapp/views/image_view.dart';
 
 Widget brandName(){
   return Center(
@@ -27,11 +28,23 @@ Widget wallpapersList({List<WallpaperModel> wallpapers, context}){
       crossAxisSpacing: 6.0,
       children: wallpapers.map((wallpapers){
         return GridTile(
-          child: Container(
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(16),
-              child: Image.network(wallpapers.src.portrait,fit: BoxFit.cover,)
+          child: GestureDetector(
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) => ImageView(
+                  imgUrl: wallpapers.src.portrait,
+                )
+              ));
+            },
+            child: Hero(
+              tag: wallpapers.src.portrait,
+              child: Container(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(16),
+                  child: Image.network(wallpapers.src.portrait,fit: BoxFit.cover,)
+                  ),
               ),
+            ),
           )
         );
       }).toList(),
