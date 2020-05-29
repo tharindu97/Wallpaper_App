@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:wallpaperapp/data/data.dart';
 import 'package:wallpaperapp/model/categorie_model.dart';
 import 'package:wallpaperapp/model/wallpaper_model.dart';
+import 'package:wallpaperapp/views/categorie.dart';
 import 'package:wallpaperapp/views/search.dart';
 import 'package:wallpaperapp/widgets/widget.dart';
 import 'package:http/http.dart' as http;
@@ -125,28 +126,37 @@ class CategoriesTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(right: 4),
-      child: Stack(
-        children: <Widget>[
-          ClipRRect(
-            borderRadius: BorderRadius.circular(8),
-            child: Image.network(imgUrl,
-              height: 50,
-              width: 100,
-              fit: BoxFit.cover, 
-            ),
-          ),
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.black26,
-              borderRadius: BorderRadius.circular(8)
-            ),
-            height: 50, width: 100,
-            alignment: Alignment.center,
-            child: Text(title, style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 16),),
+    return GestureDetector(
+      onTap: (){
+        Navigator.push(context, MaterialPageRoute(
+          builder: (context) => Categorie(
+            categorieName: title.toLowerCase(),
           )
-        ],
+        ));
+      },
+      child: Container(
+        margin: EdgeInsets.only(right: 4),
+        child: Stack(
+          children: <Widget>[
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Image.network(imgUrl,
+                height: 50,
+                width: 100,
+                fit: BoxFit.cover, 
+              ),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.black26,
+                borderRadius: BorderRadius.circular(8)
+              ),
+              height: 50, width: 100,
+              alignment: Alignment.center,
+              child: Text(title, style: TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 16),),
+            )
+          ],
+        ),
       ),
     );
   }
